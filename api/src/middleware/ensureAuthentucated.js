@@ -1,7 +1,6 @@
 const { verify } = require("jsonwebtoken");
 const AppError = require("../utils/AppError")
 const authConfig = require("../config/auth");
-const { reset } = require("nodemon");
 
 function ensureAuthenticated(request, response, next){
   const authHeader = request.headers.authorization;
