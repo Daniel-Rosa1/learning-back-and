@@ -6,11 +6,11 @@ const ensureAuthentucated = require("../middleware/ensureAuthentucated")
 
 const notesController = new NotesController()
 
-notesRoutes.use(ensureAuthentucated)
 
-notesRoutes.get("/", notesController.index)
-notesRoutes.post("/", notesController.create)
-notesRoutes.get("/:id", notesController.show)
-notesRoutes.delete("/:id", notesController.delete)
+
+notesRoutes.get("/", ensureAuthentucated, notesController.index)
+notesRoutes.post("/", ensureAuthentucated, notesController.create)
+notesRoutes.get("/:id", ensureAuthentucated, notesController.show)
+notesRoutes.delete("/:id", ensureAuthentucated, notesController.delete)
 
 module.exports = notesRoutes;
